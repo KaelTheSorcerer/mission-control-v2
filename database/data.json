@@ -97,6 +97,20 @@
       "updated_at": "2026-02-07T19:40:00.000Z",
       "started_at": "2026-02-07T19:40:00.000Z",
       "completed_at": null
+    },
+    {
+      "id": "7f7a6b34-4db0-4e68-9f3a-90a832971c8a",
+      "title": "Notion knowledge push + periodic sync",
+      "description": "Sync all knowledge/* into Notion with structured folders/pages (Hackathons, SWE, Skills, Tools, Market). Event-driven + 15-min cadence.",
+      "status": "in_progress",
+      "priority": 10,
+      "agent_id": null,
+      "deliverables": [],
+      "planning_session_id": null,
+      "created_at": "2026-02-07T20:12:00.000Z",
+      "updated_at": "2026-02-07T20:12:00.000Z",
+      "started_at": "2026-02-07T20:12:00.000Z",
+      "completed_at": null
     }
   ],
   "agents": [
