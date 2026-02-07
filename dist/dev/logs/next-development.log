@@ -1,2 +1,0 @@
-[00:00:01.710] Server  LOG     ✓ Ready in 1263ms
-[00:00:08.907] Server  ERROR   ⨯ Error: export const dynamic = "force-static"/export const revalidate not configured on route "/api/agents" with "output: export". See more info here: https://nextjs.org/docs/advanced-features/static-html-export
