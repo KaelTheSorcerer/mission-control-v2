@@ -50,6 +50,19 @@ function initDb(): Database {
       // Fall through to create new
     }
   }
+
+  // Seed from bundled data.json if present (useful for serverless /tmp)
+  try {
+    const seedPath = join(process.cwd(), 'database', 'data.json');
+    if (existsSync(seedPath)) {
+      const seed = readFileSync(seedPath, 'utf-8');
+      db = JSON.parse(seed);
+      saveDb();
+      return db!;
+    }
+  } catch {
+    // Ignore seed errors, fall through to empty DB
+  }
   
   db = {
     tasks: [],
