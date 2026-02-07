@@ -5,7 +5,7 @@ const RATE_LIMIT_STORE = new Map<string, { count: number; resetAt: number }>();
 const getClientIp = (request: NextRequest): string => {
   const forwarded = request.headers.get('x-forwarded-for');
   if (forwarded) return forwarded.split(',')[0]?.trim() || 'unknown';
-  return request.ip || 'unknown';
+  return 'unknown';
 };
 
 export const rateLimit = (
