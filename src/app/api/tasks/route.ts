@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
 import { z } from 'zod';
 import { TaskQueries, initDatabase } from '@/lib/db';
+import { rateLimit } from '@/lib/rateLimit';
 import type { ApiResponse, TaskListResponse, CreateTaskInput, Task } from '@/types';
 
 // Initialize database on first load
@@ -33,6 +34,9 @@ const updateTaskSchema = z.object({
  */
 export async function GET(request: NextRequest): Promise<NextResponse> {
   try {
+    const limited = rateLimit(request, { windowMs: 60_000, max: 120, keyPrefix: 'tasks-get' });
+    if (limited) return limited;
+
     const { searchParams } = new URL(request.url);
     const status = searchParams.get('status') || undefined;
     const agent_id = searchParams.get('agent_id') || undefined;
@@ -64,6 +68,9 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
  */
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
+    const limited = rateLimit(request, { windowMs: 60_000, max: 30, keyPrefix: 'tasks-post' });
+    if (limited) return limited;
+
     const body = await request.json();
     
     // Validate input

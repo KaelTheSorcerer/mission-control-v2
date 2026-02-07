@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
 import { z } from 'zod';
 import { AgentQueries, initDatabase } from '@/lib/db';
+import { rateLimit } from '@/lib/rateLimit';
 import type { ApiResponse, AgentListResponse, CreateAgentInput, Agent } from '@/types';
 
 // Initialize database
@@ -18,6 +19,9 @@ const createAgentSchema = z.object({
  */
 export async function GET(request: NextRequest): Promise<NextResponse> {
   try {
+    const limited = rateLimit(request, { windowMs: 60_000, max: 120, keyPrefix: 'agents-get' });
+    if (limited) return limited;
+
     const { searchParams } = new URL(request.url);
     const status = searchParams.get('status') || undefined;
 
@@ -52,6 +56,9 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
  */
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
+    const limited = rateLimit(request, { windowMs: 60_000, max: 30, keyPrefix: 'agents-post' });
+    if (limited) return limited;
+
     const body = await request.json();
     
     // Validate input

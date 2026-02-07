@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { TaskQueries, AgentQueries, initDatabase } from '@/lib/db';
+import { rateLimit } from '@/lib/rateLimit';
 import type { ApiResponse, Task, UpdateTaskInput } from '@/types';
 
 // Initialize database
@@ -29,6 +30,9 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ): Promise<NextResponse> {
   try {
+    const limited = rateLimit(request, { windowMs: 60_000, max: 120, keyPrefix: 'task-get' });
+    if (limited) return limited;
+
     const { id } = await params;
     const task = TaskQueries.getById(id);
 
@@ -64,6 +68,9 @@ export async function PATCH(
   { params }: { params: Promise<{ id: string }> }
 ): Promise<NextResponse> {
   try {
+    const limited = rateLimit(request, { windowMs: 60_000, max: 30, keyPrefix: 'task-patch' });
+    if (limited) return limited;
+
     const { id } = await params;
     const body = await request.json();
 
@@ -121,6 +128,9 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> }
 ): Promise<NextResponse> {
   try {
+    const limited = rateLimit(request, { windowMs: 60_000, max: 15, keyPrefix: 'task-delete' });
+    if (limited) return limited;
+
     const { id } = await params;
     
     // Check if task exists

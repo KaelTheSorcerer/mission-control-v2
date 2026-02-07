@@ -14,7 +14,8 @@
 3. Health check: `/api/agents`
 
 ### Environment Variables
-None required for basic operation.
+- `MC_BASIC_AUTH_USER` / `MC_BASIC_AUTH_PASS` — HTTP Basic Auth for UI + API (recommended in prod)
+- `MC_ALLOWED_ORIGINS` — comma-separated allowlist for CORS (optional)
 
 ### Database
 Uses JSON file storage (auto-created at runtime).

@@ -55,14 +55,14 @@ export default function Dashboard() {
   const [isPlanningOpen, setIsPlanningOpen] = useState(false);
   const [isDocumentPanelOpen, setIsDocumentPanelOpen] = useState(false);
 
-  // Load data on mount and auto-refresh every 30 seconds
+  // Load data on mount and auto-refresh every 15 minutes
   useEffect(() => {
     loadData();
     
-    // Auto-refresh every 30 seconds
+    // Auto-refresh every 15 minutes
     const interval = setInterval(() => {
       loadData();
-    }, 30000);
+    }, 15 * 60 * 1000);
     
     return () => clearInterval(interval);
   }, []);
