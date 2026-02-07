@@ -1,0 +1,132 @@
+{
+  "tasks": [
+    {
+      "id": "ed385036-459f-4dff-a8e4-e56379420aa4",
+      "title": "Fix MC v2 UI Buttons (Database Path)",
+      "description": "Fixed absolute database path issue causing buttons to not respond. Changed from process.cwd() to hardcoded path.",
+      "status": "completed",
+      "priority": 10,
+      "agent_id": null,
+      "deliverables": [],
+      "planning_session_id": null,
+      "created_at": "2026-02-07T16:47:23.671Z",
+      "updated_at": "2026-02-07T16:47:58.517Z",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "9c94c338-f8cf-4110-bae7-fa4ca48c0e92",
+      "title": "Archive Duplicate Notion Databases",
+      "description": "Archived 4 duplicate databases (2x Knowledge Base, 2x Projects). Confirmed 100 entries in main KB.",
+      "status": "completed",
+      "priority": 9,
+      "agent_id": null,
+      "deliverables": [],
+      "planning_session_id": null,
+      "created_at": "2026-02-07T16:47:23.865Z",
+      "updated_at": "2026-02-07T16:47:58.596Z",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "3baf9b62-3d39-446b-8e78-526b08ec0de2",
+      "title": "Add Auto-Refresh (30s Polling)",
+      "description": "Added useEffect interval to auto-refresh dashboard data every 30 seconds.",
+      "status": "completed",
+      "priority": 8,
+      "agent_id": null,
+      "deliverables": [],
+      "planning_session_id": null,
+      "created_at": "2026-02-07T16:47:23.763Z",
+      "updated_at": "2026-02-07T16:47:58.695Z",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "3b814fc7-e2a6-44bb-9cde-21411b073b21",
+      "title": "Setup Health Check + Auto-Restart",
+      "description": "Created cron job to check MC v2 health every 5 minutes and auto-restart if down.",
+      "status": "in_progress",
+      "priority": 7,
+      "agent_id": null,
+      "deliverables": [],
+      "planning_session_id": null,
+      "created_at": "2026-02-07T16:47:24.059Z",
+      "updated_at": "2026-02-07T16:47:58.768Z",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "a5931669-9093-474a-b09e-80d35538ac16",
+      "title": "Test Task",
+      "description": "Testing new task creation",
+      "status": "pending",
+      "priority": 5,
+      "agent_id": null,
+      "deliverables": [],
+      "planning_session_id": null,
+      "created_at": "2026-02-07T17:59:49.426Z",
+      "updated_at": "2026-02-07T17:59:49.426Z",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "debe1a7c-6cab-4c3e-b6c7-628a02bde6ab",
+      "title": "Test Task from CLI",
+      "description": "Verifying task creation works",
+      "status": "pending",
+      "priority": 5,
+      "agent_id": null,
+      "deliverables": [],
+      "planning_session_id": null,
+      "created_at": "2026-02-07T18:00:03.151Z",
+      "updated_at": "2026-02-07T18:00:03.151Z",
+      "started_at": null,
+      "completed_at": null
+    }
+  ],
+  "agents": [
+    {
+      "id": "41376d43-43d0-4368-9dd2-96985e35d1b8",
+      "name": "Frontend Agent",
+      "role": "frontend_developer",
+      "status": "idle",
+      "current_task_id": null,
+      "session_key": null,
+      "created_at": "2026-02-07T15:09:04.887Z",
+      "updated_at": "2026-02-07T16:47:40.303Z"
+    },
+    {
+      "id": "1b607bec-8ff1-4934-b48c-0d3ab42f55da",
+      "name": "Backend Agent",
+      "role": "backend_developer",
+      "status": "idle",
+      "current_task_id": null,
+      "session_key": null,
+      "created_at": "2026-02-07T15:09:04.887Z",
+      "updated_at": "2026-02-07T16:47:40.457Z"
+    },
+    {
+      "id": "c7610001-4c24-4185-a5f0-cbd448377ccb",
+      "name": "DevOps Agent",
+      "role": "devops_engineer",
+      "status": "idle",
+      "current_task_id": null,
+      "session_key": null,
+      "created_at": "2026-02-07T15:09:04.887Z",
+      "updated_at": "2026-02-07T16:47:40.772Z"
+    },
+    {
+      "id": "5e778439-56a4-48b9-862b-456f35f82213",
+      "name": "AI Agent",
+      "role": "ai_specialist",
+      "status": "idle",
+      "current_task_id": null,
+      "session_key": null,
+      "created_at": "2026-02-07T15:09:04.887Z",
+      "updated_at": "2026-02-07T15:09:04.887Z"
+    }
+  ],
+  "sessions": [],
+  "planningSessions": []
+}
