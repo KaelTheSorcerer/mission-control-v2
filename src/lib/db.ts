@@ -17,8 +17,12 @@ import type {
   CreateSessionInput,
 } from '@/types';
 
-// Use absolute path to ensure consistency across API routes and dev server
-const DB_DIR = '/home/nvq2309/clawd/mission-control-v2/my-app/database';
+// Database dir (override in prod via MC_DB_DIR). Vercel serverless uses /tmp.
+const DEFAULT_DB_DIR = '/home/nvq2309/clawd/mission-control-v2/my-app/database';
+const DB_DIR = process.env.MC_DB_DIR
+  || (process.env.VERCEL ? '/tmp/mission-control-v2-db' : undefined)
+  || (process.env.RAILWAY_ENVIRONMENT ? '/tmp/mission-control-v2-db' : undefined)
+  || DEFAULT_DB_DIR;
 const DB_FILE = join(DB_DIR, 'data.json');
 
 interface Database {

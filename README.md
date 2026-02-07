@@ -16,6 +16,7 @@
 ### Environment Variables
 - `MC_BASIC_AUTH_USER` / `MC_BASIC_AUTH_PASS` — HTTP Basic Auth for UI + API (recommended in prod)
 - `MC_ALLOWED_ORIGINS` — comma-separated allowlist for CORS (optional)
+- `MC_DB_DIR` — override DB path (recommended in serverless; e.g. `/tmp/mission-control-v2-db`)
 
 ### Database
 Uses JSON file storage (auto-created at runtime).

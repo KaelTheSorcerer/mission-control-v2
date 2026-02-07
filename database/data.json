@@ -86,8 +86,8 @@
     },
     {
       "id": "b4f4c1c1-99fa-4f31-9fa2-75a1458a6f7b",
-      "title": "Security hardening for MC v2",
-      "description": "Add Basic Auth, security headers, CORS, rate limiting, and 15-min refresh cadence",
+      "title": "Security + API integration hardening",
+      "description": "Add Basic Auth, security headers, CORS, rate limiting, 15-min refresh cadence; fix serverless DB path for Vercel/Railway",
       "status": "in_progress",
       "priority": 10,
       "agent_id": null,
